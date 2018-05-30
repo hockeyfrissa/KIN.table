@@ -1,8 +1,8 @@
 # KIN.table
 
 ## Description of parameters
-* `wrapperelement` : String containing element selector of where to put the table
-* `dataurl` : Url for fetching table data
+* `wrapperelement`: String containing element selector of where to put the table
+* `dataurl` 	: Url for fetching table data
 * `hitsperpage` : Number of hits per page
 * `stylesize`	: String "small" smaller font i rows
 * `density`	: Column padding, medium is default. Possible values are 'narrow','medium','large'
@@ -12,8 +12,14 @@
 * `actions`	: Array of objects containing row actions
 
 ## Description of column object
+* `type`	: Option 1 value column, Option 2 action menu column
+* `columnname`	: Header name of column
+* `columnwidth`	: Width of column, uses bootstrap responsive columns. All columns must sum up to a value of maximum of 12
+* `datafield`	: Name of data field to be used as a value
+* `formatter`	: Callback function for formatting the column value with additional formatting.
 
 ## Description of action object
+[Icon reference](http://liferay.github.io/alloy-bootstrap/base-css.html#icons)
 
 ## Example 
 ```javascript
@@ -30,14 +36,15 @@ var table = KIN.table.init({
 			{"type": "1", "columnname":"Publish date", "columnwidth":"2", "datafield":"publishDate"},
 			{"type": "1", "columnname":"Modified date", "columnwidth":"3", "datafield":"modifiedDate"},
 			{"type": "1", "columnname":"Type", "columnwidth":"3", "datafield":"structureName"},
-			{"type": "2", "columnname":"", "columnwidth":"2", "htmlTag":"htmlActionMenu"}
+			{"type": "2", "columnname":"", "columnwidth":"2"}
 	],
 	actions : [
-		{"title": '<liferay-ui:message key="edit" />', parameter: "editUrl", "icon": "icon-edit", "image": "", "key":"editPerson",callback:editArticle},
-		{"title": '<liferay-ui:message key="delete" />', parameter: {articleId:"$[articleId]",groupId:"$[groupId]"}, "icon": "icon-edit", "image": "", "key":"editPerson",callback:deleteArticle},
-		{"title": '<liferay-ui:message key="open" />', parameter: {personType:"Supplier",url:"$[viewurl]",title:"$[title]"}, "icon": "icon-edit", "image": "", "key":"editPerson",callback:openurl},
+		{"title": '<liferay-ui:message key="edit" />', parameter: "editUrl", "icon": "icon-edit", "key":"editPerson",callback:editArticle},
+		{"title": '<liferay-ui:message key="delete" />', parameter: {articleId:"$[articleId]",groupId:"$[groupId]"}, "icon": "icon-edit", "key":"editPerson",callback:deleteArticle},
+		{"title": '<liferay-ui:message key="open" />', parameter: {personType:"Supplier",url:"$[viewurl]",title:"$[title]"}, "icon": "icon-edit",  "key":"editPerson",callback:openurl},
 	 ],
 })
+
 
 /*Example of a callback formatter function*/
 function formatTitleCol(obj){
