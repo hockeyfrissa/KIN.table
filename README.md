@@ -6,7 +6,14 @@
 * `hitsperpage` : Number of hits per page
 * `stylesize`	: String "small" smaller font i rows
 * `density`	: Column padding, medium is default. Possible values are 'narrow','medium','large'
+* `loader`	: Default true, will display a loader on table update
+* `loadermsg`	: String with a message to display under the loader
+* `columns`	: Array of objects containing configuration of the columns
+* `actions`	: Array of objects containing row actions
 
+## Description of column object
+
+## Description of action object
 
 ###### Example 
 ```javascript
