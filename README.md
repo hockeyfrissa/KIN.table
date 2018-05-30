@@ -1,9 +1,16 @@
 # KIN.table
 
+## Description of parameters
+```javascript
+wrapperelement : ""
+```
+`wrapperelement` : String containing element selector of where to put the table
+
+
 ###### Example 
 ```javascript
 var table = KIN.table.init({
-	wrapperElement	 	: ".custom-table",
+	wrapperelement	 	: ".custom-table",
 	dataurl			: "<%= getPublishedContentUrl %>",
 	pagenumber		: 1,
 	hitsPerPage		: 25,
