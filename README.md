@@ -4,6 +4,8 @@
 * `wrapperelement` : String containing element selector of where to put the table
 * `dataurl` : Url for fetching table data
 * `hitsperpage` : Number of hits per page
+* `stylesize`	: String "small" smaller font i rows
+* `density`	: Column padding, medium is default. Possible values are 'narrow','medium','large'
 
 
 ###### Example 
@@ -11,8 +13,9 @@
 var table = KIN.table.init({
 	wrapperelement	 	: ".custom-table",
 	dataurl			: "<%= getPublishedContentUrl %>",
-	hitsPerPage		: 25,
+	hitsperpage		: 25,
 	stylesize		: 'small',
+	density			: 'narrow',
 	loader			: true,
 	loadermsg		: 'Loading',
 	columns : [
