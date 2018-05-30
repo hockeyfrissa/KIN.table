@@ -20,6 +20,8 @@
 
 ## Description of action object
 [Icon reference](http://liferay.github.io/alloy-bootstrap/base-css.html#icons)
+* `title`	: Action title
+* `parameter`	: Callback parameters sent to the callback function, possible to send a plain string or return data from the dataobject. To return a data object wrapp your data-field inside a $[]. You can also pass an object with multiple parameters.
 
 ## Example 
 ```javascript
@@ -39,10 +41,11 @@ var table = KIN.table.init({
 			{"type": "2", "columnname":"", "columnwidth":"2"}
 	],
 	actions : [
-		{"title": '<liferay-ui:message key="edit" />', parameter: "editUrl", "icon": "icon-edit", "key":"editPerson",callback:editArticle},
-		{"title": '<liferay-ui:message key="delete" />', parameter: {articleId:"$[articleId]",groupId:"$[groupId]"}, "icon": "icon-edit", "key":"editPerson",callback:deleteArticle},
-		{"title": '<liferay-ui:message key="open" />', parameter: {personType:"Supplier",url:"$[viewurl]",title:"$[title]"}, "icon": "icon-edit",  "key":"editPerson",callback:openurl},
-	 ],
+		{"title": '<liferay-ui:message key="edit" />', parameter: "$[editUrl]", "icon": "icon-edit", "key":"editPerson",callback:editArticle},
+		{"title": '<liferay-ui:message key="delete" />', parameter: {articleId:"$[articleId]",groupId:"$[groupId]"},"icon": "icon-trash", "key":"editPerson",callback:deleteArticle},
+		{"title": '<liferay-ui:message key="open" />', parameter: {personType:"Supplier",url:"$[viewurl]",title:"$[title]"}, "icon": "icon-search", "key":"editPerson",callback:openurl},
+  			
+	],
 })
 
 
