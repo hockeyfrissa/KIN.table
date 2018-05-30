@@ -1,5 +1,6 @@
 # KIN.table
 
+```javascript
 	var table = KIN.table.init({
 		portletNamespace 	: "hello",
 		wrapperElement	 	: ".custom-table",
@@ -23,3 +24,4 @@
   			
 		 ],
 	})
+```
