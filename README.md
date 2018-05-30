@@ -15,7 +15,7 @@
 
 ## Description of action object
 
-###### Example 
+## Example 
 ```javascript
 var table = KIN.table.init({
 	wrapperelement	 	: ".custom-table",
