@@ -3,14 +3,13 @@
 ###### Example 
 ```javascript
 var table = KIN.table.init({
-	portletNamespace 	: "hello",
 	wrapperElement	 	: ".custom-table",
-	dataurl				: "<%= getPublishedContentUrl %>",
-	pagenumber			: 1,
-	hitsPerPage			: 25,
-	stylesize			: 'small',
-	loader				: true,
-	loadermsg			: 'Loading',
+	dataurl			: "<%= getPublishedContentUrl %>",
+	pagenumber		: 1,
+	hitsPerPage		: 25,
+	stylesize		: 'small',
+	loader			: true,
+	loadermsg		: 'Loading',
 	columns : [
 			{"type": "1", "columnname":"Title", "columnwidth":"2", "datafield":"title",formatter : formatTitleCol},
 			{"type": "1", "columnname":"Publish date", "columnwidth":"2", "datafield":"publishDate"},
@@ -28,5 +27,26 @@ var table = KIN.table.init({
 /*Example of a callback formatter function*/
 function formatTitleCol(obj){
 	return '<a class="kingfisher" target="_blank" href="'+obj.item.viewurl+'">'+obj.columnvalue+'</a>';
+}
+
+/*Example of action callback functions*/
+function editArticle(parameter){
+	openEditor(parameter)
+}
+
+function deleteArticle(parameters){
+	KIN.utils.confirm_custom({
+		content : {
+			title : 'Confirm',
+			message : 'This action will move your article to the recycle bin.'
+			},
+		theme : 'chili-red',
+		onOk:<portlet:namespace />onOkTrashArticle,
+		onCancel:<portlet:namespace />onCancel,
+		parameters:{
+			articleId:parameters.articleId,
+			groupId:parameters.groupId
+		}
+	})
 }
 ```
