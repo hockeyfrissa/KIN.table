@@ -1,10 +1,9 @@
 # KIN.table
 
 ## Description of parameters
-```javascript
-wrapperelement : ""
-```
-`wrapperelement` : String containing element selector of where to put the table
+* `wrapperelement` : String containing element selector of where to put the table
+* `dataurl` : Url for fetching table data
+* `hitsperpage` : Number of hits per page
 
 
 ###### Example 
@@ -12,7 +11,6 @@ wrapperelement : ""
 var table = KIN.table.init({
 	wrapperelement	 	: ".custom-table",
 	dataurl			: "<%= getPublishedContentUrl %>",
-	pagenumber		: 1,
 	hitsPerPage		: 25,
 	stylesize		: 'small',
 	loader			: true,
